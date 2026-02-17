@@ -1,0 +1,421 @@
+{
+  "machines": [
+    {
+      "name": "infinity-socket",
+      "url": "https://pewpi-infinity.github.io/infinity-socket/",
+      "category": "socket"
+    },
+    {
+      "name": "infinity-chain",
+      "url": "https://pewpi-infinity.github.io/infinity-chain/",
+      "category": "chain"
+    },
+    {
+      "name": "infinity-frame",
+      "url": "https://pewpi-infinity.github.io/infinity-frame/",
+      "category": "frame"
+    },
+    {
+      "name": "infinity-tire",
+      "url": "https://pewpi-infinity.github.io/infinity-tire/",
+      "category": "tire"
+    },
+    {
+      "name": "infinity-belt",
+      "url": "https://pewpi-infinity.github.io/infinity-belt/",
+      "category": "belt"
+    },
+    {
+      "name": "infinity-cylinder",
+      "url": "https://pewpi-infinity.github.io/infinity-cylinder/",
+      "category": "cylinder"
+    },
+    {
+      "name": "infinity-printer",
+      "url": "https://pewpi-infinity.github.io/infinity-printer/",
+      "category": "printer"
+    },
+    {
+      "name": "infinity-reader",
+      "url": "https://pewpi-infinity.github.io/infinity-reader/",
+      "category": "reader"
+    },
+    {
+      "name": "infinity-data-collection",
+      "url": "https://pewpi-infinity.github.io/infinity-data-collection/",
+      "category": "data-collection"
+    },
+    {
+      "name": "infinity-data-disseminate",
+      "url": "https://pewpi-infinity.github.io/infinity-data-disseminate/",
+      "category": "data-disseminate"
+    },
+    {
+      "name": "infinity-assimilation",
+      "url": "https://pewpi-infinity.github.io/infinity-assimilation/",
+      "category": "assimilation"
+    },
+    {
+      "name": "infinity-audit",
+      "url": "https://pewpi-infinity.github.io/infinity-audit/",
+      "category": "audit"
+    },
+    {
+      "name": "infinity-watcher",
+      "url": "https://pewpi-infinity.github.io/infinity-watcher/",
+      "category": "watcher"
+    },
+    {
+      "name": "infinity-viewer",
+      "url": "https://pewpi-infinity.github.io/infinity-viewer/",
+      "category": "viewer"
+    },
+    {
+      "name": "infinity-listener",
+      "url": "https://pewpi-infinity.github.io/infinity-listener/",
+      "category": "listener"
+    },
+    {
+      "name": "infinity-voice",
+      "url": "https://pewpi-infinity.github.io/infinity-voice/",
+      "category": "voice"
+    },
+    {
+      "name": "infinity-commands",
+      "url": "https://pewpi-infinity.github.io/infinity-commands/",
+      "category": "commands"
+    },
+    {
+      "name": "infinity-directions",
+      "url": "https://pewpi-infinity.github.io/infinity-directions/",
+      "category": "directions"
+    },
+    {
+      "name": "infinity-maps",
+      "url": "https://pewpi-infinity.github.io/infinity-maps/",
+      "category": "maps"
+    },
+    {
+      "name": "infinity-legends",
+      "url": "https://pewpi-infinity.github.io/infinity-legends/",
+      "category": "legends"
+    },
+    {
+      "name": "infinity-money",
+      "url": "https://pewpi-infinity.github.io/infinity-money/",
+      "category": "money"
+    },
+    {
+      "name": "infinity-currency",
+      "url": "https://pewpi-infinity.github.io/infinity-currency/",
+      "category": "currency"
+    },
+    {
+      "name": "infinity-merchants",
+      "url": "https://pewpi-infinity.github.io/infinity-merchants/",
+      "category": "merchants"
+    },
+    {
+      "name": "infinity-banking",
+      "url": "https://pewpi-infinity.github.io/infinity-banking/",
+      "category": "banking"
+    },
+    {
+      "name": "infinity-commerce",
+      "url": "https://pewpi-infinity.github.io/infinity-commerce/",
+      "category": "commerce"
+    },
+    {
+      "name": "infinity-dictionary",
+      "url": "https://pewpi-infinity.github.io/infinity-dictionary/",
+      "category": "dictionary"
+    },
+    {
+      "name": "infinity-language-interpreter",
+      "url": "https://pewpi-infinity.github.io/infinity-language-interpreter/",
+      "category": "language-interpreter"
+    },
+    {
+      "name": "infinity-semantics",
+      "url": "https://pewpi-infinity.github.io/infinity-semantics/",
+      "category": "semantics"
+    },
+    {
+      "name": "infinity-logic",
+      "url": "https://pewpi-infinity.github.io/infinity-logic/",
+      "category": "logic"
+    },
+    {
+      "name": "infinity-reasoning",
+      "url": "https://pewpi-infinity.github.io/infinity-reasoning/",
+      "category": "reasoning"
+    },
+    {
+      "name": "infinity-topics",
+      "url": "https://pewpi-infinity.github.io/infinity-topics/",
+      "category": "topics"
+    },
+    {
+      "name": "infinity-threader",
+      "url": "https://pewpi-infinity.github.io/infinity-threader/",
+      "category": "threader"
+    },
+    {
+      "name": "infinity-literature",
+      "url": "https://pewpi-infinity.github.io/infinity-literature/",
+      "category": "literature"
+    },
+    {
+      "name": "infinity-math",
+      "url": "https://pewpi-infinity.github.io/infinity-math/",
+      "category": "math"
+    },
+    {
+      "name": "infinity-history",
+      "url": "https://pewpi-infinity.github.io/infinity-history/",
+      "category": "history"
+    },
+    {
+      "name": "infinity-society",
+      "url": "https://pewpi-infinity.github.io/infinity-society/",
+      "category": "society"
+    },
+    {
+      "name": "infinity-travel",
+      "url": "https://pewpi-infinity.github.io/infinity-travel/",
+      "category": "travel"
+    },
+    {
+      "name": "infinity-housing",
+      "url": "https://pewpi-infinity.github.io/infinity-housing/",
+      "category": "housing"
+    },
+    {
+      "name": "infinity-transport",
+      "url": "https://pewpi-infinity.github.io/infinity-transport/",
+      "category": "transport"
+    },
+    {
+      "name": "infinity-religion",
+      "url": "https://pewpi-infinity.github.io/infinity-religion/",
+      "category": "religion"
+    },
+    {
+      "name": "infinity-networking",
+      "url": "https://pewpi-infinity.github.io/infinity-networking/",
+      "category": "networking"
+    },
+    {
+      "name": "infinity-plans",
+      "url": "https://pewpi-infinity.github.io/infinity-plans/",
+      "category": "plans"
+    },
+    {
+      "name": "infinity-schedules",
+      "url": "https://pewpi-infinity.github.io/infinity-schedules/",
+      "category": "schedules"
+    },
+    {
+      "name": "infinity-events",
+      "url": "https://pewpi-infinity.github.io/infinity-events/",
+      "category": "events"
+    },
+    {
+      "name": "infinity-trackers",
+      "url": "https://pewpi-infinity.github.io/infinity-trackers/",
+      "category": "trackers"
+    },
+    {
+      "name": "infinity-project-managers",
+      "url": "https://pewpi-infinity.github.io/infinity-project-managers/",
+      "category": "project-managers"
+    },
+    {
+      "name": "infinity-robots",
+      "url": "https://pewpi-infinity.github.io/infinity-robots/",
+      "category": "robots"
+    },
+    {
+      "name": "infinity-components",
+      "url": "https://pewpi-infinity.github.io/infinity-components/",
+      "category": "components"
+    },
+    {
+      "name": "infinity-layers",
+      "url": "https://pewpi-infinity.github.io/infinity-layers/",
+      "category": "layers"
+    },
+    {
+      "name": "infinity-builders",
+      "url": "https://pewpi-infinity.github.io/infinity-builders/",
+      "category": "builders"
+    },
+    {
+      "name": "infinity-tangibles",
+      "url": "https://pewpi-infinity.github.io/infinity-tangibles/",
+      "category": "tangibles"
+    },
+    {
+      "name": "infinity-power",
+      "url": "https://pewpi-infinity.github.io/infinity-power/",
+      "category": "power"
+    },
+    {
+      "name": "infinity-energy",
+      "url": "https://pewpi-infinity.github.io/infinity-energy/",
+      "category": "energy"
+    },
+    {
+      "name": "infinity-dynamics",
+      "url": "https://pewpi-infinity.github.io/infinity-dynamics/",
+      "category": "dynamics"
+    },
+    {
+      "name": "infinity-dreamscapes",
+      "url": "https://pewpi-infinity.github.io/infinity-dreamscapes/",
+      "category": "dreamscapes"
+    },
+    {
+      "name": "infinity-architecture",
+      "url": "https://pewpi-infinity.github.io/infinity-architecture/",
+      "category": "architecture"
+    },
+    {
+      "name": "infinity-web-design",
+      "url": "https://pewpi-infinity.github.io/infinity-web-design/",
+      "category": "web-design"
+    },
+    {
+      "name": "infinity-layout",
+      "url": "https://pewpi-infinity.github.io/infinity-layout/",
+      "category": "layout"
+    },
+    {
+      "name": "infinity-fonts",
+      "url": "https://pewpi-infinity.github.io/infinity-fonts/",
+      "category": "fonts"
+    },
+    {
+      "name": "infinity-displays",
+      "url": "https://pewpi-infinity.github.io/infinity-displays/",
+      "category": "displays"
+    },
+    {
+      "name": "infinity-synch",
+      "url": "https://pewpi-infinity.github.io/infinity-synch/",
+      "category": "synch"
+    },
+    {
+      "name": "infinity-lock",
+      "url": "https://pewpi-infinity.github.io/infinity-lock/",
+      "category": "lock"
+    },
+    {
+      "name": "infinity-protect",
+      "url": "https://pewpi-infinity.github.io/infinity-protect/",
+      "category": "protect"
+    },
+    {
+      "name": "infinity-import",
+      "url": "https://pewpi-infinity.github.io/infinity-import/",
+      "category": "import"
+    },
+    {
+      "name": "infinity-export",
+      "url": "https://pewpi-infinity.github.io/infinity-export/",
+      "category": "export"
+    },
+    {
+      "name": "infinity-img-video",
+      "url": "https://pewpi-infinity.github.io/infinity-img-video/",
+      "category": "img-video"
+    },
+    {
+      "name": "infinity-sound",
+      "url": "https://pewpi-infinity.github.io/infinity-sound/",
+      "category": "sound"
+    },
+    {
+      "name": "infinity-quantum-lighting",
+      "url": "https://pewpi-infinity.github.io/infinity-quantum-lighting/",
+      "category": "quantum-lighting"
+    },
+    {
+      "name": "infinity-hash-generator",
+      "url": "https://pewpi-infinity.github.io/infinity-hash-generator/",
+      "category": "hash-generator"
+    },
+    {
+      "name": "infinity-memory",
+      "url": "https://pewpi-infinity.github.io/infinity-memory/",
+      "category": "memory"
+    },
+    {
+      "name": "infinity-modulators",
+      "url": "https://pewpi-infinity.github.io/infinity-modulators/",
+      "category": "modulators"
+    },
+    {
+      "name": "infinity-sweeper",
+      "url": "https://pewpi-infinity.github.io/infinity-sweeper/",
+      "category": "sweeper"
+    },
+    {
+      "name": "infinity-developers",
+      "url": "https://pewpi-infinity.github.io/infinity-developers/",
+      "category": "developers"
+    },
+    {
+      "name": "infinity-unifying",
+      "url": "https://pewpi-infinity.github.io/infinity-unifying/",
+      "category": "unifying"
+    },
+    {
+      "name": "infinity-labeling",
+      "url": "https://pewpi-infinity.github.io/infinity-labeling/",
+      "category": "labeling"
+    },
+    {
+      "name": "infinity-regulations",
+      "url": "https://pewpi-infinity.github.io/infinity-regulations/",
+      "category": "regulations"
+    },
+    {
+      "name": "infinity-royalties",
+      "url": "https://pewpi-infinity.github.io/infinity-royalties/",
+      "category": "royalties"
+    },
+    {
+      "name": "infinity-facebook",
+      "url": "https://pewpi-infinity.github.io/infinity-facebook/",
+      "category": "facebook"
+    },
+    {
+      "name": "infinity-twitter",
+      "url": "https://pewpi-infinity.github.io/infinity-twitter/",
+      "category": "twitter"
+    },
+    {
+      "name": "infinity-ebay",
+      "url": "https://pewpi-infinity.github.io/infinity-ebay/",
+      "category": "ebay"
+    },
+    {
+      "name": "infinity-youtube",
+      "url": "https://pewpi-infinity.github.io/infinity-youtube/",
+      "category": "youtube"
+    },
+    {
+      "name": "infinity-instagram",
+      "url": "https://pewpi-infinity.github.io/infinity-instagram/",
+      "category": "instagram"
+    },
+    {
+      "name": "infinity-tiktok",
+      "url": "https://pewpi-infinity.github.io/infinity-tiktok/",
+      "category": "tiktok"
+    }
+  ],
+  "total": 83,
+  "timestamp": "20260217_043935"
+}
