@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="infinity-repo" content="infinity-tools">
+<title>🛠️ Infinity Tools — Sovereign Toolset</title>
+<style>
+:root{--bg:#0a0a1a;--surface:#111128;--card:#161640;--border:#2a2a5a;--text:#e8e8f0;--muted:#8888aa;--accent:#ff9800;--gold:#ffd700;--radius:12px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:system-ui,sans-serif;min-height:100vh}
+a{color:var(--accent);text-decoration:none}
+
+.header{background:linear-gradient(135deg,#2a1a00,#0a1a2e);padding:24px;text-align:center;border-bottom:3px solid var(--accent)}
+.header h1{font-size:1.5rem;color:#fff}
+.header .sub{color:var(--muted);font-size:0.85rem;margin-top:4px}
+
+.tabs{display:flex;background:var(--surface);border-bottom:1px solid var(--border);overflow-x:auto}
+.tab{padding:10px 20px;cursor:pointer;color:var(--muted);border-bottom:2px solid transparent;white-space:nowrap;font-size:0.85rem;transition:all 0.2s}
+.tab:hover{color:var(--text)}
+.tab.active{color:var(--gold);border-bottom-color:var(--gold)}
+
+.tab-content{display:none;padding:20px}
+.tab-content.active{display:block}
+
+/* Upload */
+.upload-zone{border:2px dashed var(--border);border-radius:var(--radius);padding:40px;text-align:center;cursor:pointer;transition:all 0.3s;margin-bottom:16px}
+.upload-zone:hover{border-color:var(--accent);background:rgba(255,152,0,0.05)}
+.upload-zone.drag{border-color:var(--gold);background:rgba(255,215,0,0.1)}
+
+/* File list */
+.file-list{display:grid;gap:8px}
+.file-item{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:10px 14px;display:flex;align-items:center;gap:10px}
+.file-item .icon{font-size:1.3rem}
+.file-item .info{flex:1}
+.file-item .name{font-weight:600;font-size:0.9rem}
+.file-item .meta{font-size:0.7rem;color:var(--muted)}
+
+/* Script grid */
+.script-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.script-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;cursor:pointer;transition:all 0.2s}
+.script-card:hover{border-color:var(--accent);transform:translateY(-2px)}
+.script-card h4{font-size:0.9rem;margin-bottom:4px}
+.script-card p{font-size:0.75rem;color:var(--muted);line-height:1.4}
+.script-card .tag{display:inline-block;background:rgba(255,152,0,0.15);color:var(--accent);font-size:0.65rem;padding:2px 8px;border-radius:10px;margin-top:6px}
+
+/* Signal */
+.signal-panel{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px}
+.signal-path{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:10px 0}
+.signal-node{background:var(--surface);border:1px solid var(--accent);border-radius:8px;padding:6px 12px;font-size:0.8rem}
+.signal-arrow{color:var(--accent);font-size:1.2rem}
+
+/* Dictionary */
+.dict-section{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;margin-bottom:12px}
+.term-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:6px;margin-top:10px}
+.term{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:0.8rem;text-align:center}
+
+.footer{text-align:center;padding:16px;color:var(--muted);font-size:0.75rem;border-top:1px solid var(--border);margin-top:20px}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🛠️ Infinity Tools</h1>
+  <div class="sub">Sovereign Toolset — Upload, Scripts, Signal Bounce, Dictionary</div>
+</div>
+
+<div class="tabs">
+  <div class="tab active" onclick="showTab('upload',this)">📤 Upload</div>
+  <div class="tab" onclick="showTab('files',this)">📁 Files</div>
+  <div class="tab" onclick="showTab('scripts',this)">🐍 Scripts</div>
+  <div class="tab" onclick="showTab('signal',this)">📡 Signal Bounce</div>
+  <div class="tab" onclick="showTab('dictionary',this)">📖 Dictionary</div>
+</div>
+
+<!-- Upload Tab -->
+<div class="tab-content active" id="tab-upload">
+  <div class="upload-zone" id="upload-zone" onclick="document.getElementById('file-input').click()">
+    <div style="font-size:3rem;margin-bottom:8px">📤</div>
+    <div style="font-size:1.1rem;font-weight:600;margin-bottom:4px">Drop files here or click to upload</div>
+    <div style="color:var(--muted);font-size:0.85rem">Images, JSON, scripts, research data — any file type</div>
+    <input type="file" id="file-input" multiple style="display:none" onchange="handleFiles(this.files)">
+  </div>
+  <div id="upload-status"></div>
+  <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:12px;margin-top:12px">
+    <h4 style="font-size:0.85rem;margin-bottom:8px">Upload to Repository</h4>
+    <select id="target-repo" style="width:100%;background:var(--surface);border:1px solid var(--border);color:var(--text);padding:8px;border-radius:8px;margin-bottom:8px">
+      <option value="infinity-tools">infinity-tools</option>
+      <option value="infinity-crown-index">infinity-crown-index</option>
+      <option value="smug_look">smug_look</option>
+      <option value="mongoose.os">mongoose.os</option>
+    </select>
+    <div style="font-size:0.75rem;color:var(--muted)">Requires GitHub token in localStorage (key: github_token)</div>
+  </div>
+</div>
+
+<!-- Files Tab -->
+<div class="tab-content" id="tab-files">
+  <div style="margin-bottom:12px">
+    <input type="text" id="file-search" placeholder="Search files across repos..."
+      style="width:100%;background:var(--surface);border:1px solid var(--border);color:var(--text);padding:10px;border-radius:8px">
+  </div>
+  <div class="file-list" id="file-list">
+    <div style="text-align:center;color:var(--muted);padding:20px">Loading files...</div>
+  </div>
+</div>
+
+<!-- Scripts Tab -->
+<div class="tab-content" id="tab-scripts">
+  <div class="script-grid">
+    <div class="script-card" onclick="window.open('https://github.com/pewpi-infinity/smug_look','_blank')">
+      <h4>🐍 C13B0 Cart System</h4>
+      <p>200+ Python scripts: token generation, research scrapers, fusion engines, color logic, autonomous agents</p>
+      <span class="tag">smug_look</span>
+    </div>
+    <div class="script-card" onclick="window.open('https://github.com/pewpi-infinity/mongoose.os','_blank')">
+      <h4>🔬 Mongoose Research</h4>
+      <p>Aluminum oxide, piezoelectric systems, bio-energy transfer, atomic architecture research</p>
+      <span class="tag">mongoose.os</span>
+    </div>
+    <div class="script-card" onclick="window.open('https://github.com/pewpi-infinity/smug_look/blob/main/cart019_token_generation.py','_blank')">
+      <h4>🪙 Token Generator</h4>
+      <p>Bank-grade token creation with 4-Hash encoding, lineage tracking, signature engine</p>
+      <span class="tag">cart019</span>
+    </div>
+    <div class="script-card" onclick="window.open('https://github.com/pewpi-infinity/smug_look/blob/main/cart218_grand_master_builder.py','_blank')">
+      <h4>🏗️ Grand Master Builder</h4>
+      <p>Master zip builder — combines all research into unified packages</p>
+      <span class="tag">cart218</span>
+    </div>
+    <div class="script-card" onclick="window.open('https://github.com/pewpi-infinity/smug_look/blob/main/cart204_master_dictionary.py','_blank')">
+      <h4>📖 Master Dictionary</h4>
+      <p>Cross-domain dictionary builder — extracts terms from all repos</p>
+      <span class="tag">cart204</span>
+    </div>
+    <div class="script-card" onclick="window.open('https://github.com/pewpi-infinity/smug_look/blob/main/cart501_autonomous_kernel.py','_blank')">
+      <h4>🦾 Autonomous Kernel</h4>
+      <p>Self-running agent kernel — watches repos, triggers rebuilds, manages growth</p>
+      <span class="tag">cart501</span>
+    </div>
+    <div class="script-card" onclick="window.open('https://github.com/pewpi-infinity/smug_look/blob/main/cart506_universal_calculator_engine.py','_blank')">
+      <h4>🧮 Universal Calculator</h4>
+      <p>Cross-domain calculation engine for research metrics</p>
+      <span class="tag">cart506</span>
+    </div>
+    <div class="script-card" onclick="window.open('https://github.com/pewpi-infinity/smug_look/blob/main/cart036_rf_generation.py','_blank')">
+      <h4>📡 RF Signal Generator</h4>
+      <p>Radio frequency generation and signal processing tools</p>
+      <span class="tag">cart036</span>
+    </div>
+  </div>
+</div>
+
+<!-- Signal Bounce Tab -->
+<div class="tab-content" id="tab-signal">
+  <div class="signal-panel">
+    <h4 style="margin-bottom:8px">📡 Bismuth Signal Bounce</h4>
+    <p style="font-size:0.85rem;color:var(--muted);margin-bottom:12px">Cross-repo data/memory passing via signal chain. Each bounce carries dictionary terms, research context, and token metadata.</p>
+    <div class="signal-path">
+      <div class="signal-node">smug_look</div>
+      <div class="signal-arrow">→</div>
+      <div class="signal-node">infinity-crown-index</div>
+      <div class="signal-arrow">→</div>
+      <div class="signal-node">mongoose.os</div>
+      <div class="signal-arrow">→</div>
+      <div class="signal-node">infinity-spark-engine</div>
+      <div class="signal-arrow">→</div>
+      <div class="signal-node">infinity-tools</div>
+    </div>
+    <div style="margin-top:16px">
+      <h4 style="font-size:0.85rem;margin-bottom:8px">Signal Chain Status</h4>
+      <div id="signal-status" style="font-family:monospace;font-size:0.8rem;color:#4caf50;background:#0d0d0d;padding:12px;border-radius:8px">
+        Checking signal chain...
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Dictionary Tab -->
+<div class="tab-content" id="tab-dictionary">
+  <div class="dict-section">
+    <h4 style="margin-bottom:8px">📖 Shared Dictionary</h4>
+    <p style="font-size:0.8rem;color:var(--muted);margin-bottom:12px">Terms extracted from all 958 repos, shared across the ecosystem</p>
+    <div id="dict-loading" style="text-align:center;color:var(--muted);padding:12px">Loading dictionary...</div>
+    <div class="term-grid" id="term-grid"></div>
+  </div>
+  <div class="dict-section">
+    <h4 style="margin-bottom:8px">Color Protocol</h4>
+    <div style="display:grid;gap:6px">
+      <div style="display:flex;align-items:center;gap:8px"><span style="color:#e53935;font-size:1.5rem">🟥</span> <b>Red</b> — More valuable avenues of same content</div>
+      <div style="display:flex;align-items:center;gap:8px"><span style="color:#ff9800;font-size:1.5rem">🟧</span> <b>Orange</b> — Choices evolved in link</div>
+      <div style="display:flex;align-items:center;gap:8px"><span style="color:#ffd700;font-size:1.5rem">🟨</span> <b>Yellow</b> — Data extractor</div>
+      <div style="display:flex;align-items:center;gap:8px"><span style="color:#2196f3;font-size:1.5rem">🟦</span> <b>Blue</b> — Import something to content</div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  🛠️ Infinity Tools — Part of the <a href="https://pewpi-infinity.github.io/infinity-crown-index/">Infinity Crown System</a>
+</div>
+
+<script>
+const USER = 'pewpi-infinity';
+const API = 'https://api.github.com';
+
+// Tabs
+function showTab(name, el) {
+  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('tab-'+name).classList.add('active');
+  el.classList.add('active');
+  if (name === 'files') loadFiles();
+  if (name === 'dictionary') loadDictionary();
+  if (name === 'signal') checkSignal();
+}
+
+// Upload
+const uploadZone = document.getElementById('upload-zone');
+uploadZone.addEventListener('dragover', e => { e.preventDefault(); uploadZone.classList.add('drag'); });
+uploadZone.addEventListener('dragleave', () => uploadZone.classList.remove('drag'));
+uploadZone.addEventListener('drop', e => { e.preventDefault(); uploadZone.classList.remove('drag'); handleFiles(e.dataTransfer.files); });
+
+function handleFiles(files) {
+  const status = document.getElementById('upload-status');
+  const repo = document.getElementById('target-repo').value;
+  const token = localStorage.getItem('github_token');
+
+  for (const file of files) {
+    const reader = new FileReader();
+    reader.onload = async function(e) {
+      const base64 = btoa(String.fromCharCode(...new Uint8Array(e.target.result)));
+      status.innerHTML += `<div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:8px 12px;margin-bottom:4px;font-size:0.85rem">
+        📄 ${file.name} (${(file.size/1024).toFixed(1)}KB) → ${repo}
+        ${token ? '— uploading...' : '— <span style="color:var(--accent)">Set github_token in localStorage to upload</span>'}
+      </div>`;
+
+      if (token) {
+        try {
+          const r = await fetch(`${API}/repos/${USER}/${repo}/contents/uploads/${file.name}`, {
+            method: 'PUT',
+            headers: {'Authorization': 'token '+token, 'Accept': 'application/vnd.github.v3+json'},
+            body: JSON.stringify({message: 'Upload: '+file.name, content: base64})
+          });
+          if (r.ok) {
+            status.lastElementChild.innerHTML += ' <span style="color:#4caf50">✓ Uploaded</span>';
+          } else {
+            status.lastElementChild.innerHTML += ' <span style="color:#f44336">✗ Failed</span>';
+          }
+        } catch(err) {
+          status.lastElementChild.innerHTML += ' <span style="color:#f44336">✗ Error</span>';
+        }
+      }
+    };
+    reader.readAsArrayBuffer(file);
+  }
+}
+
+// Files browser
+async function loadFiles() {
+  const list = document.getElementById('file-list');
+  try {
+    const r = await fetch(`${API}/repos/${USER}/infinity-tools/contents/`);
+    const files = await r.json();
+    list.innerHTML = (files||[]).map(f =>
+      `<div class="file-item">
+        <div class="icon">${f.type==='dir'?'📁':'📄'}</div>
+        <div class="info">
+          <div class="name">${f.name}</div>
+          <div class="meta">${f.size||0}B · ${f.type}</div>
+        </div>
+      </div>`
+    ).join('');
+  } catch(e) { list.innerHTML = '<div style="color:var(--muted);padding:12px">Could not load files</div>'; }
+}
+
+// Dictionary
+async function loadDictionary() {
+  try {
+    const r = await fetch(`https://${USER}.github.io/infinity-crown-index/api/dictionary.json`);
+    const dict = await r.json();
+    const grid = document.getElementById('term-grid');
+    const loading = document.getElementById('dict-loading');
+    loading.style.display = 'none';
+    if (typeof dict === 'object') {
+      const terms = Object.keys(dict).slice(0, 100);
+      grid.innerHTML = terms.map(t => `<div class="term">${t}</div>`).join('');
+    }
+  } catch(e) {
+    document.getElementById('dict-loading').textContent = 'Dictionary not yet built';
+  }
+}
+
+// Signal check
+async function checkSignal() {
+  const el = document.getElementById('signal-status');
+  const chain = ['smug_look','infinity-crown-index','mongoose.os','infinity-spark-engine','infinity-tools'];
+  let html = '';
+  for (const repo of chain) {
+    try {
+      const r = await fetch(`${API}/repos/${USER}/${repo}`);
+      const data = await r.json();
+      html += `${repo}: ${data.size}KB | pages:${data.has_pages?'ON':'OFF'} | updated:${data.updated_at?.split('T')[0]}\n`;
+    } catch(e) {
+      html += `${repo}: OFFLINE\n`;
+    }
+  }
+  html += '\n✓ Signal chain active';
+  el.textContent = html;
+}
+</script>
+<script defer src="https://pewpi-infinity.github.io/infinity-crown-index/js/infinity-emoji-logic.js"></script>
+</body>
+</html>
